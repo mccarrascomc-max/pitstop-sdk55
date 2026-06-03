@@ -3,7 +3,6 @@ import { ScrollView, Text, TextInput, View } from 'react-native';
 import { AppButton } from '../components/AppButton';
 import { ChargeTypeSelector } from '../components/ChargeTypeSelector';
 import { InfoBox } from '../components/InfoBox';
-import { ThemeToggle } from '../components/ThemeToggle';
 import { useAppTheme } from '../theme/AppThemeContext';
 
 export function FuelFormScreen({
@@ -27,7 +26,6 @@ export function FuelFormScreen({
         <Text style={styles.brandSmall}>Nueva carga</Text>
         <Text style={styles.dashboardTitle}>Registrar combustible</Text>
         <Text style={styles.panelSubtitle}>Usuario: {usuarioActual}</Text>
-        <ThemeToggle />
       </View>
 
       <View style={styles.formPanel}>
@@ -44,8 +42,8 @@ export function FuelFormScreen({
 
         <TextInput
           style={styles.input}
-          placeholder="Litros cargados"
-          keyboardType="numeric"
+          placeholder="Litros cargados, ejemplo 28,312"
+          keyboardType="decimal-pad"
           value={litros}
           onChangeText={onLitrosChange}
           placeholderTextColor={colors.muted}

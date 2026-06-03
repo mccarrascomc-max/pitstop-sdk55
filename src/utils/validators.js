@@ -1,6 +1,8 @@
+import { parseIntegerInput, parseLitersInput } from './formatters';
+
 export function validateCredentials(usuario, contrasena) {
   if (!usuario || !contrasena) {
-    return 'Ingresa usuario y contrasena.';
+    return 'Ingresa usuario y contraseña.';
   }
 
   return null;
@@ -14,20 +16,20 @@ export function validateFuelForm(kilometraje, litros, precio, tipoCarga) {
     };
   }
 
-  const kmNumero = Number(kilometraje);
-  const litrosNumero = Number(litros);
-  const precioNumero = Number(precio);
+  const kmNumero = parseIntegerInput(kilometraje);
+  const litrosNumero = parseLitersInput(litros);
+  const precioNumero = parseIntegerInput(precio);
 
   if (isNaN(kmNumero) || isNaN(litrosNumero) || isNaN(precioNumero)) {
     return {
-      title: 'Datos invalidos',
-      message: 'Kilometraje, litros y precio deben ser numeros.',
+      title: 'Datos inválidos',
+      message: 'Kilometraje, litros y precio deben ser números.',
     };
   }
 
   if (kmNumero <= 0 || litrosNumero <= 0 || precioNumero <= 0) {
     return {
-      title: 'Datos invalidos',
+      title: 'Datos inválidos',
       message: 'Los valores deben ser mayores a cero.',
     };
   }

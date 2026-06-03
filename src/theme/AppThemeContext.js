@@ -4,16 +4,15 @@ import { appThemes, getAppStyles } from '../styles/appStyles';
 
 const AppThemeContext = createContext(null);
 
-export function AppThemeProvider({ children, mode, onToggleTheme }) {
+export function AppThemeProvider({ children, mode }) {
   const value = useMemo(
     () => ({
       colors: appThemes[mode] ?? appThemes.light,
       isDark: mode === 'dark',
       mode,
-      onToggleTheme,
       styles: getAppStyles(mode),
     }),
-    [mode, onToggleTheme]
+    [mode]
   );
 
   return (

@@ -1,18 +1,14 @@
-import { Text, TouchableOpacity, View } from 'react-native';
+import { Text, View } from 'react-native';
 
 import { useAppTheme } from '../theme/AppThemeContext';
 
-export function UserHeader({ usuarioActual, onLogout }) {
+export function UserHeader({ usuarioActual }) {
   const { styles } = useAppTheme();
 
   return (
-    <View style={styles.userBox}>
+    <View style={styles.userHeader}>
       <Text style={styles.userLabel}>Usuario</Text>
       <Text style={styles.userText}>{usuarioActual}</Text>
-
-      <TouchableOpacity onPress={onLogout}>
-        <Text style={styles.logoutText}>Cerrar sesion</Text>
-      </TouchableOpacity>
     </View>
   );
 }

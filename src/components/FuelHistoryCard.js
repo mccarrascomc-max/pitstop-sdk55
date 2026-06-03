@@ -1,6 +1,7 @@
 import { Text, View } from 'react-native';
 
 import { FULL_CHARGE } from '../utils/fuelCalculations';
+import { formatCurrency, formatLiters, formatNumber } from '../utils/formatters';
 import { useAppTheme } from '../theme/AppThemeContext';
 
 export function FuelHistoryCard({ registro }) {
@@ -23,9 +24,11 @@ export function FuelHistoryCard({ registro }) {
       </View>
 
       <Text style={styles.historyText}>Fecha: {registro.fecha}</Text>
-      <Text style={styles.historyText}>Kilometraje: {registro.kilometraje} km</Text>
-      <Text style={styles.historyText}>Litros: {registro.litros} L</Text>
-      <Text style={styles.historyText}>Precio: ${registro.precio}</Text>
+      <Text style={styles.historyText}>
+        Kilometraje: {formatNumber(registro.kilometraje)} km
+      </Text>
+      <Text style={styles.historyText}>Litros: {formatLiters(registro.litros)} L</Text>
+      <Text style={styles.historyText}>Precio: {formatCurrency(registro.precio)}</Text>
 
       {registro.consumo ? (
         <Text style={styles.consumoText}>

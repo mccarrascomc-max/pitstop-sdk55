@@ -1,7 +1,6 @@
 import { ScrollView, Text, TouchableOpacity, View } from 'react-native';
 
 import { AppButton } from '../components/AppButton';
-import { ThemeToggle } from '../components/ThemeToggle';
 import { useAppTheme } from '../theme/AppThemeContext';
 
 function ActionCard({ eyebrow, title, description, onPress }) {
@@ -30,9 +29,8 @@ export function ActionMenuScreen({
       <View style={styles.topBar}>
         <View>
           <Text style={styles.brandSmall}>Centro de control</Text>
-          <Text style={styles.dashboardTitle}>Que quieres hacer?</Text>
+          <Text style={styles.dashboardTitle}>¿Qué quieres hacer?</Text>
           <Text style={styles.panelSubtitle}>Usuario: {usuarioActual}</Text>
-          <ThemeToggle />
         </View>
       </View>
 
@@ -40,7 +38,7 @@ export function ActionMenuScreen({
         <ActionCard
           eyebrow="01"
           title="Mantenimiento"
-          description="Revisa tareas pendientes y proximas revisiones del auto."
+          description="Revisa tareas pendientes y próximas revisiones del auto."
           onPress={onMaintenance}
         />
         <ActionCard
