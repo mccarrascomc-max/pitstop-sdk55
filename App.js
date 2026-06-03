@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Alert } from 'react-native';
 
-import { ActionMenuScreen } from './src/screens/ActionMenuScreen';
 import { CarManagerScreen } from './src/screens/CarManagerScreen';
 import { FuelFormScreen } from './src/screens/FuelFormScreen';
 import { FuelRecordsScreen } from './src/screens/FuelRecordsScreen';
@@ -45,7 +44,6 @@ import { AppThemeProvider } from './src/theme/AppThemeContext';
 const SCREENS = {
   login: 'login',
   home: 'home',
-  actions: 'actions',
   maintenance: 'maintenance',
   fuelForm: 'fuelForm',
   fuelRecords: 'fuelRecords',
@@ -490,18 +488,6 @@ export default function App() {
           onTipoCargaChange={setTipoCarga}
           onSave={guardarRegistro}
           onBack={() => setPantalla(SCREENS.home)}
-        />
-      );
-    }
-
-    if (pantalla === SCREENS.actions) {
-      return (
-        <ActionMenuScreen
-          usuarioActual={usuarioActual}
-          onBack={() => setPantalla(SCREENS.home)}
-          onFuelRecord={abrirRegistroCombustible}
-          onMaintenance={abrirMantenimiento}
-          onRecords={() => setPantalla(SCREENS.fuelRecords)}
         />
       );
     }
